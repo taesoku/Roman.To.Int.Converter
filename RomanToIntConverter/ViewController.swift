@@ -25,13 +25,13 @@ class ViewController: UIViewController {
         var input = RomanTextView.text;
         for (var i = 0; i < input.count; i += 1) {
             if (i + 1 < input.count && dictionary[input[i] ] < dictionary[input[i + 1]]) {
-                    output -= dictionary[input[i]]
+                    output -= dictionary[(String) input[i]]
             }
             else {
-                output += dictionary[input[i]]
+                output += dictionary[(String) input[i]]
             }
         }
-        IntTextView.text = output
+        IntTextView.text = (String) output
     }
     
     var dictionary = [1: "I",
