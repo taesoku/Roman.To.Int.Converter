@@ -20,6 +20,33 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func convert() {
+        let output = 0
+        var input = RomanTextView.text;
+        for (var i = 0; i < input.count; i += 1) {
+            if (i + 1 < input.count && dictionary[input[i] ] < dictionary[input[i + 1]]) {
+                    output -= dictionary[input[i]]
+            }
+            else {
+                output += dictionary[input[i]]
+            }
+        }
+        IntTextView.text = output
+    }
+    
+    var dictionary = [1: "I",
+                      5: "V",
+                      10: "X",
+                      50: "L",
+                      100: "C",
+                      500: "D",
+                      1000: "M"]
+    
+    @IBAction func ConvertButtonClicked(_ sender: AnyObject) {
+        convert()
+    }
+    
+    @IBOutlet weak var RomanTextView: UITextView!
+    @IBOutlet weak var IntTextView: UITextView!
 }
 
